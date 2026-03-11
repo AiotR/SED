@@ -7,12 +7,16 @@ paginate: true
 # Portual Digitalak eta Sarrera/Irteerak
 **80C552 Mikrokontrolagailua**
 
+> **Irudiaren Prompta (Google Nano):** A close-up of the metal pins of an integrated circuit chip plugging into a breadboard, high tech lighting, crisp details.
+
 ---
 
 ## 1. Atakak (Ports)
 - 8-biteko atakak dira sistemarekin mundu fisikoa konektatzeko.
 - 80C552-k 6 ataka nagusi ditu: **P0, P1, P2, P3, P4 erabilera orokorrerako** eta **P5 Sarrera analogikorako**.
 - C kodean bitze mailako eragiketak zuzenean ahaltzen ditu.
+
+> **Irudiaren Prompta (Google Nano):** A digital infographic style image showing a square microchip with arrows pointing to different input and output ports labeled P0 to P5, modern technical vector style.
 
 ---
 
@@ -21,6 +25,8 @@ paginate: true
 - Pin bat **SARRERA** gisa erabiltzeko, zirkuitu birtualki idatzi egin behar da sarrerarik onena lortzeko: elikadura jarriz.
 - Praktikan: `P1 = 0xFF; // P1 guztia Sarrera bezala irakurtzeko gaitu`
 - Pin bat **IRTEERA** gisa balio du zuzenean `0` (itzalita) edo `1` (piztuta) esleituz.
+
+> **Irudiaren Prompta (Google Nano):** A macro photography of an LED illuminating brightly next to a tactile push button on an electronic breadboard, glowing red LED, depth of field.
 
 ---
 
@@ -34,6 +40,8 @@ sbit LED    = P4^0; // Port 4, Pin 0
 ```
 Ondorioz, programan `if (BOTOIA == 1)` edota `LED = 1;` egin daiteke.
 
+> **Irudiaren Prompta (Google Nano):** A futuristic glowing code snippet floating over a hardware circuit board, with the text 'sbit' glowing in bright neon green, cyberpunk style.
+
 ---
 
 ## 4. Etenduren Sarrera (INT0 eta INT1)
@@ -42,6 +50,8 @@ Ondorioz, programan `if (BOTOIA == 1)` edota `LED = 1;` egin daiteke.
 - Modu bi:
   - **Level-triggered:** Pultsu baxua dagoen bitartean etengabe detektatzen da (IT0 = 0).
   - **Edge-triggered:** Saihets-beheantzakoa (falling-edge, "1"-etik "0"ra itzaltzean) unean birritan sakatzea ekiditen du behin bakarrik erregistratuz (IT0 = 1).
+
+> **Irudiaren Prompta (Google Nano):** A large red emergency stop button integrated into an industrial control panel, sharp focus on the button, technical environment.
 
 ---
 
@@ -59,8 +69,12 @@ void Larrialdia_ISR(void) interrupt 0 {
 }
 ```
 
+> **Irudiaren Prompta (Google Nano):** A close up of a glowing terminal screen showing the text 'interrupt 0', with neon blue and purple reflections, coding aesthetic.
+
 ---
 
 ## LABURPENA
 - Sarrerak jasotzeko portuei `1` osorik izendatzea ezinbestekoa da aurretik erregistroetatik energia sartzeko. 
 - Etendurek (`interrupt x` etiketekin erabilitako ISR) beti gailentzen zaizkio `while(1)` errepikapeneko programa bati. Hori da gailu txertatuen magia!
+
+> **Irudiaren Prompta (Google Nano):** A conceptual illustration of a fast lightning bolt hitting a microchip to represent an interrupt signal (ISR), energetic and dynamic tech art.
