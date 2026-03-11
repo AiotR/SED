@@ -1,0 +1,61 @@
+Industria Elektronikaren eta Automatikaren Ingeniaritzako Gradua  Sistema Elektroniko  Digitalak     
+ 
+ 
+ 
+ 
+   
+ 
+Gerardo Tapia Otaegui eta Ana Susperregui Burguete   Donostiako U.E.P.  
+  Sistemen Ingeni aritza eta Automatikako Saila  SISTEMA ELEKTRONI KO DIGITALAK  
+ 
+ 
+SEMAFORO EZBERDINEN PROGRAMAZIOA  
+ 
+ 
+Praktikaren helburuak:  
+ 
+ Erabili behar den hardwarearekin trebatu. 
+ 80C552 txiparen  ataka paraleloen ezaguera praktikan jartzea . 
+ 
+Materiala:  
+ 
+ Ekipamendu  informatikoa konputagail ua. 
+ Keil µVision garapen -sistema.  
+ 
+Planteamendu teorikoa:  
+ 
+80C552 µKontrola gailuaren  ataka  paraleloen ezaguera finkatzeko, ondoko hiru semaforoak 
+inplementatu:  
+a) Semaforo inozoa  
+ 
+Semaforo arrunt baten zikloa betetzen du etengabe. Argi gorri ak gutxi  gorabehe ra 15 
+segundo iraun behar du piztuta. Ondoren, argi berdea k 20 segundo z piztu behar da eta,  
+azkenik, argi laranja  3 segundo z. Semaforoaren hiru argiak P1 ataka paraleloko ondoko pin -
+ak erabiliz piztu (‘1’ logikoa) ala itzal (‘0’ logikoa) daitezke:  
+ 
+P1.7 P1.6 P1.5 P1.4 P1.3 P1.2 P1.1 P1.0 
+G G G A A B B B 
+G: gorria, A: ambarra eta B: berdea direla kontuan hartuz.  
+ 
+b) Gau-Egun  semaforoa  
+ 
+Semaforo inozoak egiten duenaz gain, P4 ataka paraleloko 0 pin-era konektatutako 
+etengailu bat aktibatzerakoan (‘1’ logikoa), semaforoak ziklo arrunta amaitu (berdea -
+anbarra -gorria) eta argi anbarra aldizkakotasun egoeran jartzen du (1 segundo piztuta, 1 
+segundo itzalita), aipatutako etengailua desaktibatzen den arte (‘0’ logikoa) . Une horretan, 
+semaforoak bere ziklo arrunta berr eskuratuko luke.  
+ 
+c) Oinezkoen semaforoarekin konektatutako ibilgailuen semaforoa  
+ 
+Aurreko semaforoak egiten duenaz gain, oinezko batek P4.1 pin-era konektatutako 
+pultsadore bat sakatzerakoan (‘1’ logikoa) beroni errepidea ahalik eta azkarren gurutzatzea 
+ahalbidetu behar dio. Horretarako, ondoko bi kasuak kontuan hartu behar dira:  
+ Semaforoa berdean badago, berehala anbarrera pasa beharko du, zikloa hortik 
+aurrera jarraitzeko.  
+ Gorrian badago, ordea, 15 segund oko tenporizazioak berriro hasi beharko du.  
+Oinezkoak  pultsadorea askatu bezain laster, P4.1 pin-a ‘0’ logikoan geratuko da.  
+ 
+Prozedura:  
+ 
+1) Semaforo  bakoitza C lengoaia erabiliz programatu, simulatu eta , ondoren, 
+hardwarearen bitartez probatu.  
