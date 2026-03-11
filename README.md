@@ -39,4 +39,10 @@ Ariketa edo azterketa bat egiten dugun bakoitzean:
 3. Keil μVision erabiliz konpilatu.
 4. Git bidez aldaketak gorde (`git commit`) eta GitHub-era igo (`git push origin main`).
 
+### Adimen Artifizialaren Aginduak (Workflows)
+
+Proiektua hainbat gailutan modu erosoan sinkronizatzeko, bi komando berezi prestatu dira AI agenteentzat:
+- **/hasi**: Deskargatu GitHub-etik azken aldaketak (`git pull origin main`) beste ordenagailu batean lan egiten hasi aurretik. Funtzionamendua automatizatua dago.
+- **/bukatu**: Lanean amaitzerakoan aldaketa guztiak paketatu eta hodeira igotzeko (`git add .`, `git commit` eta `git push origin main`). Funtzionamendua automatizatua dago.
+
 Gida hau eta kodea modu didaktikoan azaltzeko diseinatuta daude. Edozein zalantza baduzu, galdetu!
