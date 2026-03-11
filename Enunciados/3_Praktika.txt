@@ -1,0 +1,82 @@
+Industria Elektronikaren eta Automatikaren Ingeniaritzako Gradua  Sistema Elektroniko  Digitalak     
+ 
+ 
+ 
+ 
+   
+ 
+Gerardo Tapia Otaegui eta Ana Susperregui Burguete   Donostiako U.E.P.  
+  Sistemen Ingeniaritza eta Automatikako Saila  SISTEMA ELEKTRONI KO DIGITALAK  
+ 
+ 
+ARGIZKO ERROTULU BATEN PROGRAMAZIOA  
+ 
+ 
+Praktikaren helburuak:  
+ 
+ Taulen kontzeptua eta erabilera landu.  
+ 
+Materiala:  
+ 
+ Ekipamendu  informatikoa konputagailua . 
+ Keil µVision garapen -sistema.  
+ DISEN 552 modulua.  
+ DISEN E XP modulua.  
+ 
+Planteamendu teorikoa:  
+ 
+Gabonetarako zure etxea  apainduko duen “ZORIONAK” errotulua erosi duzu , eta bere  
+kontrola egiteko 80C552  µKontrolagailua erabiltzea erabaki duzu.  
+ 
+Horretarako, P1 ataka paraleloko pin bakoitzak “ ZORIONAK ” hitzeko hizki bat piztu ala 
+itzaltzeko kontrol -seinalea sortzen duela  suposatuko da. Honela, P1.7 pin-a “Z”-ri dagokio; 
+P1.6 pin-a berriz, “ O”-ri; P1.5 pin-a “R”-ri, etab; azkenik, P1.0 pin-a “K”-ri dagokiolarik.  
+Sistema, P4.0 pin-ean konektatutako etengailu orokor bate n bitartez mart xan jarri ( ‘1’ 
+logikoa) ala deskonekta daiteke ( ‘0’ logikoa)  edozein unetan.  
+ 
+Errotuluan ikusi beharreko konfigurazioen segida ondoren adierazten dena da. 
+Konfigurazio bakoitzean argitzen diren hizkiak erakusten dira soilik:  
+ 
+Z - - - - - - - 
+- O - - - - - - 
+- - R - - - - - 
+- - - I - - - - 
+- - - - O - - - 
+- - - - - N - - 
+- - - - - - A - 
+- - - - - - - K 
+Z - R - O - A - 
+- O - I - N - K 
+Z - - - - - - - 
+Z O - - - - - - 
+Z O R - - - - - 
+Z O R I - - - - 
+Z O R I O - - - 
+Z O R I O N - - 
+Z O R I O N A - 
+Z O R I O N A K 
+1. Konfiguraziora itzuli  
+ 
+Industria Elektronikaren eta Automatikaren Ingeniaritzako Gradua  Sistema Elektroniko  Digitalak     
+ 
+ 
+ 
+ 
+   
+ 
+Gerardo Tapia Otaegui eta Ana Susperregui Burguete   Donostiako U.E.P.  
+  Sistemen Ingeniaritza eta Automatikako Saila  P4.1 pin-ean ipinitako etengailu  batek segidaren noranzkoa  alda dezake edozein unetan. 
+Honela, P4.1 = ‘1’  bada,  noranzkoa  aurreko taularen goitik beherakoa izango da eta, aldiz, 
+P4.1 = ‘0’  bada,  noranzkoak  behetik gorakoa izan beharko du.  
+ 
+Azkenik , P4.2 pin-ean ezarritako beste etengailu batek segidaren abiadura alda dezake 
+edozein unetan . Honela , P4.2 = ‘1’ bada, konfigurazio bakoitzak gutxi gora -behera 0,5 
+segundo iraun behar du. Aldiz, P4.2 = ‘0’ bada, konfigurazio bakoitzak segundo bat iraun 
+beharko du.  
+ 
+Prozedura:  
+ 
+1) Eskatutakoa C lengoaia erabiliz programatu, simulatu eta , ondoren, hardwarea n 
+probatu.  
+2) Programa zatika eraiki. Zati bakoitzaren funtzionamendua probatu eta, ondo badabil, 
+jarraitu programari kodea gehitzen.  
