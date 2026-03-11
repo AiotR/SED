@@ -1,0 +1,141 @@
+ 
+ 
+ 
+ 
+ 
+ Deiturak/ Apellidos: ........................................ .................................................. Izena/ Nombre: .........................................  
+Berezitasuna/ Especialidad:  I.E.A.I. Gradua Ikasgaia/ Asignatura:  Sist. Elektroniko Digitalak  
+Ikasturtea/ Curso:  3º  Taldea/ Grupo:  31  N.A.N./ D.N.I.: ...........................  Data/ Fecha: 2022-06-13  
+ 
+— Praktikoa (irakasgaiaren % 70a) — 
+ 
+Ura eta produktu jakin baten arteko nahasketa kudea tzen duen sistema bat programatzeko lana egokitu 
+zaizue (ikusi 1. irudia), zeina 80C552 mikrokontrol agailuan (µK) oinarrituta egongo den. 
+ 
+ 
+1. irudia: Nahasketarako plataforma 
+ 
+Ura eta produktua nahasteko prozesua (6 puntu): 
+ 
+—5 puntu: nahaste prozesua;  puntu 1: A/D bihurketa — 
+ 
+Nahasketa prozesua ondoren azaltzen den moduan egin go da: 
+ 
+ P3.0  pinari konektatutako START  pultsagailua sakatzean hasiko da nahasketa prozesu a martxan 
+(pultsagailua sakatuta dagoen bitartean, pin-ari “1 ” logikoa iristen zaio). 
+ 
+ Behin prozesua martxan jarrita, lehenik eta behin, P4.0  pina aktibatuz V1  balbula irekiko da, ura 3 
+segundoz irteten uzteko. 3 segundo horien ostean V1  itxi egingo da. 
+ 
+ Ondoren, produktua depositu ttipi batera isuri beha r da, P4.1  pina aktibatuz, zeinak V2  balbula 
+irekiko duen, produktuaren irteera ahalbideratuz. 
+ 
+ V2  balbula irekita egongo da produktuaren pisua 10 gr amotara iritsi arte. Horretarako, P5.5  pinera 
+konektatutako sentsore analogiko bat erabiliko da. Gramo kopurua kalkulatzeko, honako adierazpen 
+hau erabil daiteke:   	
+ .
+  ℎ . 
+ 
+ Pisu egokia lortzen denean, V2 balbula itxiko da eta KONPORTA  irekiko da 5 segundoz, P4.2  pin-
+a aktibatuz, produktua nahasketarako depositura bid eratuz. Esandako denbora pasa ostean 
+KONPORTA  itxi egingo da.  
+ 
+ Aurreko puntuetan deskribatutako nahasketa prozesua k irauten duen bitartean, LED  batek 
+adieraziko du prozesua martxan dagoela. LED  hori P4.7  pin-a aktibatuz piztuko da. Nahasketa-
+prozesua amaitutakoan, LED -ak itzalita egon behar du. 
+ 
+ Nahasketa-prozesua amaitu ondoren, sistema beste pr ozesu berri bat hasteko prest geratuko da. 
+Hasita dagoen nahasketa-prozesu baten bitartean START  pultsagailua  sakatzen bada, honek ez du 
+eraginik izango. 
+GIPUZKOAKO INGENIARITZA ESKOLA  
+ESCUELA DE INGENIERÍA DE GIPUZKOA 
+DONOSTIA/ SAN SEBASTIÁN  
+
+ 
+ 
+ 
+ 
+ 
+ Hasita dagoen nahasketa prozesu bat gelditzea (1,5 puntu) 
+ 
+Proiektuaren bigarren zatian, nahasketa-prozesua ed ozein unetan gelditzeko aukera gehituko da. 
+Horretarako, P3.2  pin-era konektatutako STOP  pultsagailua gehitu da (pultsagailua sakatzean, “0 ” logiko 
+bat bidaltzen zaio pin-ari, eta, sakatuta ez badago , “1” logiko bat bidaltzen da). 
+ 
+STOP  sakagailua sakatu bezain pronto, sistemak LED -a itzaliko du eta BALBULAK  zein 
+KONPORTA  itxiko ditu. Gainera, nahasketa-prozesu berri bat hasteko prest geratuko da. Gelditzeko 
+agindua detektatzeko, P3.2 pinari dagokion kanpo et endura erabiltzea beharrezkoa izango da. 
+ 
+Ebazpenak hurrengo baldintzak bete behar ditu  
+ 
+ Azterketa gainditzeko beharrezkoa izango da nahaske ta-prozesua behar bezala programatuta egotea  
+ 
+ Mikrokontrolagailuaren kanpo-osziladorea 12.0 MHz-e koa dela kontsidera ezazu. 
+ 
+ Denbora zenbatzeko, Timer1-a erabiliko da 1 moduan,  baita aipatutako Timer horren etendurari 
+jaramon egiten dion funtzioa ere. 
+ 
+ Beharrezko hasieraketak egiteko behar den kodea fun tzio batean gauzatuko da.  
+ 
+ Aldagaiak global gisa deklaratuko dira soilik saihe stezina denean global bezala deklaratzea (0,25 
+puntu) . 
+ 
+ Aldagaiak datuen memorian ahalik eta espazio gutxie n okupa dezaten deklaratuko dira (0,25 puntu) . 
+ 
+ A/D bihurgailua erabiltzeko behar den kodea funtzio  batean garatu beharko da. Funtzio horren 
+sarrera kanalaren indizea izango da, eta bihurketar en kode digitala itzuli beharko du. 
+ 
+ Azterketaren orrian uvision programaren konfigurazi oan aldatu dituzun aukerak idatzi/islatu behar 
+dituzu (oszilagailuaren maiztasuna, etb.). 
+ 
+ eGela-ra proiektu bakarra igoko da. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fitxategiak gordetzeko eta igotzeko jarraitu beharr eko pausoak:  
+ 
+1.  Abizena1Abizena2Izena izeneko karpeta bat sortu.  
+2.  Sortzen dituzun fitxategiak karpeta horretan gorde ( proiektu bakarra ).  
+3.  Karpeta konprimatu eta eGelara (egela.ehu.eus) igo:  Bidalketa (karpeta konprimatua) gehitu eta 
+aldaketak  gorde . Bidalketaren egoera “ Kalifikatzeko bidalia”  egoerara pasako da.  
+4.  Sortutako fitxategi eta karpeta guztiak ezabatu.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 4. Praktikari buruzko galderak (2 puntu): 
+ 
+1.  2. irudian, 4. Praktikan erabili den txartelaren ir udia ageri da. Txartela 3 zatitan banatu da (A, 
+B eta C). Azal ezazu, labur, zein funtzio bete duen  txartelaren zati horietako bakoitzak KZ-
+eko motorraren ardatzaren posizioa kontrolatzeko eg in zen azken muntaian. 
+ 
+ 
+ 
+ 
+2. irudia: 4. Praktikan erabilitako txartelaren iru dia 
+ 
+ 
+2.  Hona hemen KZ-eko motorraren ardatzaren posizioa ko ntrolatzeko garatu zen programaren 
+zati bat. Konturatu zaitezte, 23. lerroan kode zati  bat ezabatu dela. Bihurgailua 12 bitetakoa 
+dela eta ±10 V-eko tentsio tartearekin lan egiten d uela kontsideratuz, osatu eta arrazoitu lerro 
+horretan falta den kodea. 
+ 
+ 
+ 
+3. irudia. 4. Praktikan egindako kode-zatia 
+ 
+ 
+ 
+A 
+B 
+C 
