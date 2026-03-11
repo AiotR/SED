@@ -1,0 +1,30 @@
+# SED Mikro-kontrolagailuen Proiektua (80552C)
+
+Proiektu honen helburua 80552C (8051 familia) mikro-kontrolagailua programatzea da, C lengoaia eta Keil μVision plataforma erabilita. Hemen gordeko ditugu gaiari buruzko ariketak (Praktikak) eta azterketak (Azterketak). GitHub-era igotzeko prest dago egitura hau.
+
+## Karpeten Egitura
+
+- `Documentation/`: Datu-orriak (datasheets) eta eskuliburuak.
+- `Enunciados/`: Praktiken enuntziatuak (PDF formakuan).
+- `Azterketak/`: Azterketen enuntziatuak (PDF formakuan).
+- `Praktikak/`: Praktiken C kodea eta μVision (Keil) proiektuak. Praktika bakoitzak bere karpeta izango du.
+- `Azterketak_Ebazpenak/`: Azterketen ebazpenak (C kodean) eta euren Keil proiektuak.
+- `Txantiloia/`: Proiektu berriak hasteko oinarrizko egitura (Template proiektua).
+
+## Firmware eta Garapen Ingurunea
+
+- **Microcontroller (MCU):** 80552C (8051 arkitektura oinarritzat duena).
+- **IDE:** Keil μVision.
+- **Language:** C (C51 compiler).
+
+Keil proiektuetan (`.uvproj`) konpilatzean sortzen diren fitxategi tenporalak ez dira GitHub-era igoko, `.gitignore` fitxategiak horiek baztertuko dituelako (adibidez, `Objects/`, `Listings/`, `.obj`, `.lst` etab.).
+
+## Nola Erabili
+
+Ariketa edo azterketa bat egiten dugun bakoitzean:
+1. `Txantiloia` karpeta kopiatu eta izena aldatu (adibidez, `Praktikak/1_Praktika`).
+2. Kodea idatzi `src/` karpetaren barruan.
+3. Keil μVision erabiliz konpilatu.
+4. Git bidez aldaketak gorde (`git commit`) eta GitHub-era igo (`git push origin main`).
+
+Gida hau eta kodea modu didaktikoan azaltzeko diseinatuta daude. Edozein zalantza baduzu, galdetu!
