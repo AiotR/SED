@@ -1,0 +1,278 @@
+K. Z. -eko motor baten posizio-kontrolaren inplementazioa 80C552
+µKontrolagailuaren bitartez
+M. Itsaso Mart´ ınez Aguirre eta Ana Susperregui Burguete
+Sistema Elektroniko Digitalak
+Industri Elektronikaren eta Automatikaren Ingeniaritzako Gradua eta Gradu Bikoitza ri zuzenduta
+Sistemen Ingeniaritza eta Automatika Saila
+2025/2026 Ikasturtea
+Sarrera Muntaiaren eskema Atazak
+Aurkibidea
+✧Sarrera
+✧Muntaiaren eskema
+✧Atazak
+❖Bete beharreko atazen zerrenda
+❖1. Ataza: A/D Bihurketa
+❖2. Ataza: SETxAD multzoaren karakterizazioa
+❖3. Ataza: D/A bihurketa
+❖4. Ataza: Kontrol algoritmoaren inplementazioa
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 2 / 21
+Sarrera Muntaiaren eskema Atazak
+Sarrera
+Helburua
+Erregulazio Automatiko ko irakasgaian, K.Z.-eko serbomotore baten ardatzaren posizio ange-
+luarra kokatzeko kontrolagailua diseinatu zenuten. Aurreratze-konpentsadore bat hain zu-
+zen. Halaber, kontrolagailu analogikoa digitalizatu eta prest utzi zenuten plataforma digi-
+tal batean inplementatzeko. Gure lana, aurreratze-konpentsadore digitalizatu hura 80C552
+µkontrolagailuan ( µK) inplementatzea eta martxan jartzea izango da. Bide horretan oztopo-
+ak topatuko ditugu. Hauek aztertuz eta gainditzeko ikasi beharko duguna barneratuz, arlo
+honetako ezagutzaren oinarriak sortzen hasiko gara.
+1 Irudia: Kontrol-sistema analogikoa eta bere baliokide digitala.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 3 / 21
+Sarrera Muntaiaren eskema Atazak
+Inplementatu beharreko kontrol seinalea
+Aurreratze-konpentsadorearen diferentzia-ekuazioa:
+uk=2−ah
+2 +ahuk−1+Kc2 +bh
+2 +ahek+bh−2
+2 +ahek−1
+(1)
+Non:
+✧u[V] kontrol seinalea,
+✧e=θref−θ[rad] errorea,
+✧h= 0,022 [s] laginketa-periodoa,
+✧a= 20 [s-1],
+✧b= 16,949152542372865 [s-1], eta
+✧Kc=−9,311534963543551 [V/rad]
+baitira.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 4 / 21
+Sarrera Muntaiaren eskema Atazak
+Muntaiaren eskema
+2 Irudia: Sistema osatzen duten ekipoen arteko konexioak.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 5 / 21
+Sarrera Muntaiaren eskema Atazak
+Bete beharreko atazen zerrenda
+Bete beharreko ataza konplexua sinpleetan banandu, eta bakoitza problema independente
+bat bezala tratatu eta ebatzi:
+✧1. Ataza: A/D Bihurketa.
+✧2. Ataza: “Sentsorea + Egokitze Txartela + AD bihurgailua” (SETxAD) multzoaren
+karakterizazioa.
+✧3. Ataza: D/A Bihurketa.
+Hauek integratuz, soluzio osoa lortu:
+✧4. Ataza: Kontrol legearen inplementazioa erreferentzia aldakorra batentzako.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 6 / 21
+Sarrera Muntaiaren eskema Atazak
+1. Ataza: A/D Bihurketa (I)
+✧Deskribapena. 80C552 µK-ak sistema analogiko bat kontrolatu behar badu seinale
+analogikoak eskuratzeko gaitasuna izan behar du. Txertatuta duen A/D bihurgailuaren
+eginkizuna hori da, baina bere funtzionamendua aproposa izan dadin, ondo konfiguratu
+behar da.
+Helburua
+Sarrera analogikoen irakurketa kudeatuko duen funtzio bat sortu nahi da. Horrela, sarrerako
+seinale analogiko bat irakurri behar den bakoitzean, funtzio honi dei egingo zaio.
+✧A/D bihurgailuaren ezaugarriak:
+❖Eskala sakonera —Full Scale Range (FSR)—: 0 ÷5 V
+❖Bereizmena: 10 bit
+❖A/D-a kudeatzeko funtzio bereziko erregistroak (SFR): ADCON eta ADCH
+✧Funtzioaren diseinua. Funtzioak, ondorengo baldintzak beteko ditu:
+❖Funtzioaren deklarazioa/prototipoa :
+▶Izena : AD Bihurketa
+▶Pasa beharreko parametroak : irakurri nahi den kanala
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 7 / 21
+Sarrera Muntaiaren eskema Atazak
+1. Ataza: A/D Bihurketa (eta II)
+▶Itzulera-parametroa : sarrera analogikoari dagokion 10 biteko kodea —bihurketa-kodea—
+❖Funtzioaren definizioa : A/D bihurgailuaren erregistroak modu egokian konfiguratu eta
+manipulatuko dira bihurketa era egokian burutzeko.
+✧Balioztapena. Inplementatutako kodeak funtzionamendu egokia duen edo ez konpro-
+batzeko:
+❖ADBihurketa funtzioari deitzen dion programa nagusi bat sortuko da.
+❖Bertan, 8 kanalak irakurriko dira bata bestearen atzetik.
+❖Lortutako kodean oinarrituz, sarrerako tentsioa ondorioztatu bihurketa ondo dagoela
+ziurtatzeko.
+❖Azkenarekin bukatzean, lehenengoarekin jarraituko du etengabe.
+Printzipioz, simulazioaren bitartez garatutako balioztapena nahikoa izango da.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 8 / 21
+Sarrera Muntaiaren eskema Atazak
+2. Ataza: SETxAD multzoaren karakterizazioa (I)
+✧Deskribapena. Inplementatu behar den kontrol seinaleari erreparatuz (1), motorraren
+posizioa, θ, ezagutu behar dela ikus daiteke. Baina, nola eskuratzen dugu motorraren
+posizioa?
+2 Irudiak, motorraren posizioa sentsore baten bitartez tentsio bezala — −10÷10 V—
+eskuratzen dela erakusten du —Posizioa (21)—. Sentsoreak ematen duen tensio tartea
+A/D bihurgailuak —80C552ak duena— onar dezakeena baino zabalagoa denez, 5 ÷0
+V-eko tartera egokitzen da interfaze txartel baten bitartez. Honek, bi zirkuito ego-
+kitzaile ditu bi seinale egokitzeko aukera emanez —AI1 eta AI2 sarrerak izanik eta,
+AO1 eta AO2 irteerak, hurrenez hurren—. Ondoren, gure A/D bihurgailuak 0 kanaletik
+jasotzen duen tentsioa 10 biteko kode batean bihurtuko luke, aurreko atazan garatutako
+ADBihurketa funtzioak itzultzen duena.
+Jarraitutako “katea” kontuan hartuz gero, kode hau motorraren posizioarekin erlazio-
+natuta dagoela ondoriozta daiteke. Kontrol seinalea kalkulatzeko motorraren posizioa
+beharrezkoa denez, aipatutako erlazioa bilatzea komeni zaigu. Horretarako, “Sentsorea
++ Egokitze Txartela + AD bihurgailua” (SETxAD) multzoaren karakterizazioa burutu
+beharko da.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 9 / 21
+Sarrera Muntaiaren eskema Atazak
+2. Ataza: SETxAD multzoaren karakterizazioa (II)
+Beraz, zuzen baten espresioa bilatzen ari gara. Gure kasura aplikatuz:
+θ[rad] =MADKodea +OFFSET . (2)
+Helburua
+A/D bihurgailuak itzultzen duen kodea eta motorraren posizioaren arteko erlazioa matema-
+tikoki aurkeztu erregresio linealaren bitartez.
+✧Garapena:
+❖Aurreko atazean sortutako ADBihurketa funtzioaz baliatuz, programa nagusi bat pres-
+tatu 0 kanaletik sartzen den tentsioari dagokion ADKodea etengabe eskuratzeko.
+❖Motorra posizio ezberdinetan kokatzeko, fabrikatzaileak iradokitzen duen zirkuitua mun-
+tatu — eGela n muntaketa egiteko eskema topatuko duzue—.
+❖Motorra eta µK-ren arteko konexioak burutzeko, 2 Irudian oinarritu.
+❖Motorra, 0◦÷360◦tartean, hurrengo posizioetan kokatu behar da: 0◦, 30◦, 60◦, 90◦. . .
+360◦.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 10 / 21
+Sarrera Muntaiaren eskema Atazak
+2. Ataza: SETxAD multzoaren karakterizazioa (eta III)
+❖ADBihurketa funtzioari deitzen zaion hurrengo lerroan breakpoint bat jarri.
+❖Motorra posizio bakoitzean jarri eta gero: programa egikaritu eta, breakpoint -ean gel-
+ditzean, posizio bakoitza eta honi dagokion ADKodea eGela n utzitako MATLABeko
+Script -ean gorde.
+❖Script -a egikaritzean, eregresio lineal bat burutuko da sartutako datuetan oinarrituz, M
+etaOFFSET koefizienteak lortuz.
+✧Balioztapena. Behin karakterizazioa eginda, motorra edozein posiziotan kokatu eta
+µKrekin posizioa ondorioztatzeko gauza garen konprobatu.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 11 / 21
+Sarrera Muntaiaren eskema Atazak
+3. Ataza: D/A bihurketa (I)
+✧Deskribapena. Kalkulatu behar den kontrol seinalea, uk, mundu analogikora ateratze-
+ko D/A bihurgailu bat ezinbestekoa da. 80C552 µK-ak horrelako baliabidea ez duenez,
+interfaze txartelean −10÷10 V tartean lan egin dezakeen 12 biteko D/A bihurgailu bat
+sartzea erabaki da —ikusi 2 Irudia—. Bihurgailu honek 12 biteko kodea jasotzen due-
+nean, tentsio bat aplikatuko du bere irteeran. Kasu honetan, zirkuituteriaren diseinua
+kontuan hartuz, portaera lineala 1 Taulan islatzen da.
+1 Taula: D/A bihurgailuaren portaera lineala.
+DI: Sarrerako kode bitarra (hamartarrean) AO: Irteerako tentsioa (V)
+000000000000 (0) -10
+111111111111 (4095) 10
+Kontuan hartu D/A bihurgailuaren irteeran kontrol seinalearen balioa lortu nahi dela.
+Gailu honen portaera ezaguna izanda, tentsio zehatz bat sortzeko behar den 12 biteko
+kodea kalkulatzeko ez genuke arazorik izan behar.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 12 / 21
+Sarrera Muntaiaren eskema Atazak
+3. Ataza: D/A bihurketa (II)
+Laburtuz, behin kontrol seinalea lortuta —80C552an inplementatuko dugun kontrol
+algoritmoarekin—, D/A bihurgailuak bere irteeran tentsio hori jartzeko beharko lukeen
+12 biteko kodea lortzeko gai izango ginateke.
+Hurrengo pausoa, 12 biteko kodea µKontrolagailutik ateratzea izango litzateke D/A
+bihurgailura eramateko. Gure µK-ak 8 pineko S/I-ko atakak dituenez, bi ataka erabiltzea
+erabaki da: P4 osoa eta P3-ren erdiko 4 pinak zehazki —2 Irudia—.
+Helburua
+D/A bihurketa prozesua ahalbidetuko duen funtzio bat garatu nahi da, kalkulatutako uk
+kontrol seinalearen tentsioa D/A bihurgailuaren irteeran ager dadin.
+✧Funtzioaren diseinua. Funtzioak, ondorengo baldintzak beteko ditu:
+❖Funtzioaren deklarazioa/prototipoa :
+▶Izena : DA Bihurketa
+▶Pasa beharreko parametroak :ukkontrol seinalearen balioa
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 13 / 21
+Sarrera Muntaiaren eskema Atazak
+3. Ataza: D/A bihurketa (III)
+❖Funtzioaren definizioa :
+▶D/A bihurgailuari pasa beharreko 12 biteko kodea kalkulatu bere irteeran ukkontrol seina-
+learen balioa jar dezan.
+▶Lortutako 12 biteko kodea
+B11 B10 B09 B08 B07 B06 B05 B04 B03 B02 B01 B00
+MSB LSB
+P3 atakaren erdiko 4 pinetatik eta P4 atakatik ateratzeko, ondorengo formatua kontuan
+hartu:
+X X B11 B10 B09 B08 X X P3
+P3.7 P3.6 P3.5 P3.4 P3.3 P3.2 P3.1 P3.0
+B07 B06 B05 B04 B03 B02 B01 B00 P4.
+P4.7 P4.6 P4.5 P4.4 P4.3 P4.2 P4.1 P4.0
+“X”-a agertzen den pin-en egoera ez aldatu! µK-ak beste ataza batzuk gauzatzeko
+erabiltzen baititu pin hauek —PC-arekin komunikatzeko eta kanpo memoria kudeatzeko—.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 14 / 21
+Sarrera Muntaiaren eskema Atazak
+3. Ataza: D/A bihurketa (eta IV)
+✧Balioztapena. Inplementatutako funtzioak egoki lan egiten duen konprobatzeko:
+❖DABihurketa funtzioari deitzen dion programa nagusi bat sortu.
+❖Bertan, −10÷10 V-eko tartean, saiatu hainbat balio ateratzen.
+❖Kodea ondo lortzen dela eta P4 eta P3 ataketan ondo kokatzen dela konprobatu simula-
+zioaren bitartez.
+❖Ondoren, hardwarean D/A bihurketa ondo funtzionatzen duela balioztatzeko, behar diren
+konexioak egin 2 Irudian oinarrituz. Bestalde, polimetro bat erabili D/A bihurgailuko
+irteeran atera nahi den tentsioa lortzen dela ziurtatzeko.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 15 / 21
+Sarrera Muntaiaren eskema Atazak
+4. Ataza: Kontrol algoritmoaren inplementazioa (I)
+✧Deskribapena. Behin alboko-oztopak —tentsio-mailen egokitzapena, A/D bihurketa,
+karakterizazioa eta D/A bihurketa— gaindituta, (1) ekuazioak islatzen duen kontrol
+seinalea inplementa eta aplika daiteke. Kontrol seinalea inplementatzeko behar den
+kode zatiari Kontrol Algoritmoa deritzo, eta ondorioztatzeko, (1) ekuaziotik abiatuko
+gara.
+Helburua
+Posizioko kontrol algoritmoaren kodea inplementatzea aurreko atazeetan sortutako funtzio-
+nalitateak integratuz.
+✧Kontrol algoritmoaren ondorioztapena. (1) ekuazioa aztertuz, kontrol algoritmoa
+inplementatzeko behar diren aldagaiak eta parametroak ondoriozta daitezke —haritik
+tira eginez—.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 16 / 21
+Sarrera Muntaiaren eskema Atazak
+4. Ataza: Kontrol algoritmoaren inplementazioa (II)
+(1) berridatziz, kontrol-legea era sinpleago batean aurkez daiteke
+uk=2−ah
+2 +ah|{z}
+A0uk−1+Kc2 +bh
+2 +ah
+|{z}
+A1ek+Kcbh−2
+2 +ah
+|{z}
+A2ek−1=A0uk−1+A1ek+A2ek−1,
+(3)
+nonA0,A1etaA2ezagunak diren. uk−1etaek−1aurreko unean kalkulatu diren kontrol-
+seinalea eta erroreak dira, hurrenez hurren. Beraz, ezagunak ere.
+Kalkulatu beharreko ezezagun bakarra oraingo errorea, ek=θref k−θk, izango litzateke.
+Erreferentzia, θref k, guk ezarriko dugu, baina motorraren posizioa, θk, berreskuratu
+behar da. Horretarako, 1. eta 2. atazetan egindako lanaz baliatuko gara.
+Hau guztia kontuan hartuz, kontrol seinalearen, uk, kalkulua egiteko gai izango gara.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 17 / 21
+Sarrera Muntaiaren eskema Atazak
+4. Ataza: Kontrol algoritmoaren inplementazioa (III)
+✧Kodearen garapena. Kontrol algoritmoa inplementatzeko, µK-ak dituen baliabideak
+erabili hurrengo baldintzak betetzeko:
+❖Kontrol-seinalea, uk, 22 ms-ro eguneratu ko da ardatzaren kokapen egokia bermatzeko.
+Bestalde, −8÷8 V tartean mugatuko da.
+❖Denbora zenbatzeko, 0 Timer -a erabiliko da 1 modua n, baita aipatutako Timer horren
+etendura ri jaramon egiten dion funtzioa ere 1. erregistro bankua erabiliz.
+❖Hasierapenak egiteko behar den kodea funtzio batean gauzatuko da.
+❖Aldagaiak global gisa deklaratuko dira soilik saihestezina denean global bezala dekla-
+ratzea.
+❖Aldagaiak datuen memorian ahalik eta espazio gutxien okupa dezaten deklaratuko dira.
+❖Programa martxan jarri bezain laster, µK-ak ardatzaren posizioa kontrolatzen hasi behar-
+ko du. µK-aren elikadura mozten denean bakarrik kontrolatzeari utziko dio.
+❖Aurreko atazeetan sortutako funtzioekin, liburutegi bat sortu —.h eta .c fitxategietan
+antolatuz— eta erabili.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 18 / 21
+Sarrera Muntaiaren eskema Atazak
+4. Ataza: Kontrol algoritmoaren inplementazioa ( IV)
+❖Bi bertsio garatuko dira:
+▶Lehenengoan, θreferreferentzia seinalea konstante izango da denboran zehar.
+▶Bigarren bertsioan aldiz, θrefaldakorra izango da 3 irudiak islatzen duen profila jarraituz.
+Hau inplementatzeko, taula bat erabiltzea eskatzen da. Horrez gain, erreferentziaren profila
+etengabe errepikatuko da.
+3 Irudia: Denboran zeharreko erreferentzia aldakorra.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 19 / 21
+Sarrera Muntaiaren eskema Atazak
+4. Ataza: Kontrol algoritmoaren inplementazioa ( eta V)
+✧Balioztapena.
+❖2 irudian islatzen diren konexio guztiak egin.
+❖Kontrol-sistema martxan jartzeko hurrengo segida jarraitu:
+▶Interfaze txartela elikatu.
+▶µK-a elikatu, programa kargatu eta martxan jarri.
+▶Motorra elikatu.
+❖Motorraren ardatza erreferentzia jarraitzen badu, kontrol algoritmoa balioztatutzat
+emango da.
+M. Itsaso Martinez eta Ana Susperregui K. Z. -eko motor baten kontrolaren inplementazioa 20 / 21
+K. Z. -eko motor baten posizio-kontrolaren inplementazioa 80C552
+µKontrolagailuaren bitartez
+M. Itsaso Mart´ ınez Aguirre eta Ana Susperregui Burguete
+Sistema Elektroniko Digitalak
+Industri Elektronikaren eta Automatikaren Ingeniaritzako Gradua eta Gradu Bikoitza ri zuzenduta
+Sistemen Ingeniaritza eta Automatika Saila
+2025/2026 Ikasturtea
