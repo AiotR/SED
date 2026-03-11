@@ -10,6 +10,7 @@ Proiektu honen helburua 80552C (8051 familia) mikro-kontrolagailua programatzea 
 - `Praktikak/`: Praktiken C kodea eta μVision (Keil) proiektuak. Praktika bakoitzak bere karpeta izango du.
 - `Azterketak_Ebazpenak/`: Azterketen ebazpenak (C kodean) eta euren Keil proiektuak.
 - `Txantiloia/`: Proiektu berriak hasteko oinarrizko egitura (Template proiektua).
+- `Nire ebazpenak/`: Erabiltzailearen benetako ariketa eta proiektu pertsonalak. **Etorkizuneko AI Agenteentzako oharra:** Karpeta hau erabiltzailearen lan-eremu nagusia da; hemen idatziko ditu bere azterketa edota ariketen soluzioak. Erabiltzaileak laguntza, iritzia, zuzenketak edo galderak ebaztea eskatzen badu, IA sistemek automatikoki karpeta honetako edukiak aztertu, funtzionamendua identifikatu eta erantzun pertsonalizatuak eskaini behar dituzte (ikuskaritza, C51 memoria maping-a, ISR konfigurazioa, optimizazioa).
 
 ## Firmware eta Garapen Ingurunea
 
