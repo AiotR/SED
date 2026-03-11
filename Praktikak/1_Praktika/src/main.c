@@ -150,23 +150,16 @@ unsigned int ariketa5(unsigned int zenb) {
 
 // --- Main ---
 void main(void) {
-    // ---- 1. Ariketa Frogak ----
-    volatile float res1_batura = ariketa1(5, 10, 15);     // 30
-    volatile float res1_biderketa = ariketa1(5, -2, 10);  // -100
-    
-    // ---- 2. Ariketa Frogak ----
+    // Aldagaien definitzea C zaharraren arabera blokearen hasieran
+    float res1_batura, res1_biderketa;
     float C2[3][3] = {
         {2, 4, 7},
         {4, 2, 6},
         {1, 5, 9}
     };
-    volatile float batura2 = ariketa2_batura(C2);
-    volatile float biderketa2 = ariketa2_biderketa(C2);
+    float batura2, biderketa2;
+    Erroak poli_erroak;
     
-    // ---- 3. Ariketa Frogak ----
-    volatile Erroak poli_erroak = ariketa3(1.0, -5.0, 6.0); // x^2 - 5x + 6 = 0 -> Erroak: 3 eta 2
-
-    // ---- 4. Ariketa Frogak ----
     int A[3][3] = {
         {1, 2, 3},
         {4, 5, 6},
@@ -182,17 +175,31 @@ void main(void) {
     int biderketa[3][3];
     int iraulia[3][3];
     
+    unsigned int bit_res_1, bit_res_2, bit_res_4, bit_res_8, bit_res_0;
+
+    // ---- 1. Ariketa Frogak ----
+    res1_batura = ariketa1(5, 10, 15);     // 30
+    res1_biderketa = ariketa1(5, -2, 10);  // -100
+    
+    // ---- 2. Ariketa Frogak ----
+    batura2 = ariketa2_batura(C2);
+    biderketa2 = ariketa2_biderketa(C2);
+    
+    // ---- 3. Ariketa Frogak ----
+    poli_erroak = ariketa3(1.0, -5.0, 6.0); // x^2 - 5x + 6 = 0 -> Erroak: 3 eta 2
+
+    // ---- 4. Ariketa Frogak ----
     ariketa4_batura(A, B, batura);
     ariketa4_kenketa(A, B, kenketa);
     ariketa4_biderketa(A, B, biderketa);
     ariketa4_iraulia(A, iraulia);
     
     // ---- 5. Ariketa Frogak ----
-    volatile unsigned int bit_res_1 = ariketa5(0xABCD & 0xFFF1); // nibble 0 = 1 -> (A<<8)|(B<<4)|C = 0x0ABC
-    volatile unsigned int bit_res_2 = ariketa5(0xABCD & 0xFFF2); // nibble 0 = 2 -> swap(CD, AB) = 0xCDAB
-    volatile unsigned int bit_res_4 = ariketa5(0xABCD & 0xFFF4); // nibble 0 = 4 -> 4, C, B, A = 0x4CBA
-    volatile unsigned int bit_res_8 = ariketa5(0xABCD & 0xFFF8); // nibble 0 = 8 -> esangarritasuna
-    volatile unsigned int bit_res_0 = ariketa5(0xABCD & 0xFFF0); // 0 (bestelakoak)
+    bit_res_1 = ariketa5(0xABCD & 0xFFF1); // nibble 0 = 1 -> (A<<8)|(B<<4)|C = 0x0ABC
+    bit_res_2 = ariketa5(0xABCD & 0xFFF2); // nibble 0 = 2 -> swap(CD, AB) = 0xCDAB
+    bit_res_4 = ariketa5(0xABCD & 0xFFF4); // nibble 0 = 4 -> 4, C, B, A = 0x4CBA
+    bit_res_8 = ariketa5(0xABCD & 0xFFF8); // nibble 0 = 8 -> esangarritasuna
+    bit_res_0 = ariketa5(0xABCD & 0xFFF0); // 0 (bestelakoak)
 
     while(1) {
         // Begizta infinitua (mikroetan beharrezkoa)
