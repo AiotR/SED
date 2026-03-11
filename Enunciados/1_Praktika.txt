@@ -1,0 +1,119 @@
+µVision eta C51: Oinarriak
+M. Itsaso Mart´ ınez Aguirre eta Ana Susperregui Burguete
+Sistema Elektroniko Digitalak
+Industri Elektronikaren eta Automatikaren Ingeniaritzako Gradua eta Gradu Bikoitza ri zuzenduta
+Sistemen Ingeniaritza eta Automatika Saila
+2025/2026 Ikasturtea
+Garapen-Sistema C51ren Oinarriak Ariketak
+Aurkibidea
+✧µVision Garapen-Sistema
+✧C51ren Oinarriak
+❖Datu-Motak
+❖Eragileak
+❖Egiturak
+✧Ariketak
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 2 / 10
+Garapen-Sistema C51ren Oinarriak Ariketak
+µVision Garapen-Sistema
+✧µVision garapen sistema integratuta —Integrated Development Environment (IDE)—:
+❖Editorea
+❖Konpiladorea
+❖Elkartzailea (linker)
+❖Araztatzailea (debugger)
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 3 / 10
+Garapen-Sistema C51ren Oinarriak Ariketak
+Datu Motak
+Datua Bit Kopurua Byte Kopurua Barrutia
+char 8 1 -128 ÷127
+unsigned char 8 1 0 ÷255
+short 16 2 -32768 ÷32767
+unsigned short 16 2 0 ÷65535
+int 16 2 -32768 ÷32767
+unsigned int 16 2 0 ÷65535
+long 32 4 -2147483648 ÷2147483647
+unsigned long 32 4 0 ÷4294967295
+float 32 4 ±1,175494e-38÷ ±3,402823e38
+bit 1 – 0 ÷1
+sbit 1 – 0 ÷1
+sfr 8 1 0 ÷255
+sfr16 16 2 0 ÷65535
+enum 8/16 1/2 -128 ÷127 / -32768 ÷32767
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 4 / 10
+Garapen-Sistema C51ren Oinarriak Ariketak
+Eragileak
+✧Aritmetikoak: =, +, −,∗,/, ++, −−
+✧Konparaketak egiteko: ==, <,≤,>,≥, !=
+✧Logikoak: !, &&, ||
+✧Biten erabilerarako: & (and), |(or), ˜ (baterako osagarria), <<(ezkerrera desplaza-
+tu),>>(eskubira desplazatu)
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 5 / 10
+Garapen-Sistema C51ren Oinarriak Ariketak
+Egiturak (I)
+✧Begiztak:
+❖for(i=0; i <20; i++) {. . .}
+❖while (baldintza) {. . .}
+❖do{. . .}while (baldintza);
+✧Adarkatzeak:
+❖if(baldintza) {. . .}
+❖else if (baldintza) {. . .}
+❖else {. . .}
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 6 / 10
+Garapen-Sistema C51ren Oinarriak Ariketak
+Egiturak (eta II)
+❖switch (aldagaia)
+{
+case espresioa:
+. . .
+break ;
+. . .
+default :
+. . .
+break ;
+}
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 7 / 10
+Garapen-Sistema C51ren Oinarriak Ariketak
+Ariketak (I)
+✧Hiru zenbaki oso sortu eta nahi dituzun balioekin hasieratu. Horietako bat negatibo bada, hiru
+zenbakien biderketa egin. Bestela, hiruen batura lor ezazu.
+✧Hurrengo matrizea sortu eta elementu guztien batura eta biderketa lortu:
+A=
+2 4 7
+4 2 6
+1 5 9
+
+✧ax2+bx+cpolinomioaren erroak kalkulatu.
+✧Jarraian definitzen diren AetaBmatrizeak sortu eta beraien batura, kenketa eta biderketa
+egin. Bukatzeko, Amatrizearen iraulia lortu.
+A=
+1 2 3
+4 5 6
+7 8 9
+;B=
+9 8 7
+6 5 4
+3 2 1
+
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 8 / 10
+Garapen-Sistema C51ren Oinarriak Ariketak
+Ariketak (eta II)
+✧Zeinurik gabeko 16 biteko zenbaki bat bi zatitan banandu nahi da, esangarritasun gehien eta gutxien
+daukaten bytetan, zenbH eta zenbL, hurrenez hurren:
+B15 B14 B13 B12 B11 B10 B9 B8 B7 B6 B5 B4 B3 B2 B1 B0nibble 3 nibble 2 nibble 1 nibble 0
+zenbH zenbL
+zenbL -ren beheko lau biten balioen arabera (B3-B0) — nibble 0 — ekintza desberdinak egin
+behar dira:
+❖nibble 0 : 0001 bada, nibble 3 ,nibble 2 etanibble 1 -ekin, zenbaki bat osatu (orden
+horretan) eta aldagai batean gorde.
+❖nibble 0 : 0010 bada, zenbH etazenbL -ren esangarritasuna alderantzikatu eta zenbaki bat
+osatu.
+❖nibble 0 : 0100 bada, nibble 0 ,nibble 1 ,nibble 2 etanibble 3 -rekin zenbaki bat osatu
+(orden horretan) eta aldagai batean gorde.
+❖nibble 0 : 1000 bada, B15-B4 biten esangarritasuna alderantzikatu eta zenbaki bat osatu.
+❖Bestelako kasuetan, zero zenbakia bueltatu emaitza moduan.
+M. Itsaso Martinez eta Ana Susperregui µVision eta C51: Oinarriak 9 / 10
+µVision eta C51: Oinarriak
+M. Itsaso Mart´ ınez Aguirre eta Ana Susperregui Burguete
+Sistema Elektroniko Digitalak
+Industri Elektronikaren eta Automatikaren Ingeniaritzako Gradua eta Gradu Bikoitza ri zuzenduta
+Sistemen Ingeniaritza eta Automatika Saila
+2025/2026 Ikasturtea
