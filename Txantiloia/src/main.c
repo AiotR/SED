@@ -1,4 +1,4 @@
-#include <reg52.h> // Generic 8051 header. Replace with specific 80552 header if available.
+#include <reg552.h> /* 80C552 espezifikoa: P4, ADC, PWM, I2C SFR guztiak barnebiltzen ditu */
 
 void init_sys(void) {
     // Initial configuration for specific SFRs, Timer, UART, interrupts, etc.

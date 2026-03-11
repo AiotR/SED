@@ -21,10 +21,11 @@
  *   P4.2 = Abiadura (1=0.5 seg/konfig, 0=1 seg/konfig)
  *===========================================================*/
 
-#include <reg52.h>
+#include <reg552.h> /* 80C552 espezifikoa: P4, ADC, PWM, I2C... SFR guztiak barnebiltzen ditu */
 
-/* --- P4 SFR Definizioa (80C552-n berarizkoa, reg52.h-n ez dago) --- */
-sfr P4 = 0xE8;
+/* OHARRA: reg552.h-k P4 dagoeneko definituta du.
+ * Aurreko bertsioan 'sfr P4 = 0xE8;' eskuz definitu behar genuen (reg52.h generikoarekin),
+ * baina orain ez da beharrezkoa. */
 
 /* --- P4 Bit Definizioak --- */
 sbit ETENGAILU_OROK = P4^0; /* 1=Martxan, 0=Geldi */

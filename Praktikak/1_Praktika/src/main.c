@@ -1,5 +1,5 @@
-#include <reg52.h>
-#include <math.h>
+#include <reg552.h> /* 80C552 espezifikoa: P4, ADC, PWM, I2C SFR guztiak barnebiltzen ditu */
+#include <math.h>  /* sqrt() funtzioa 3. ariketarako */
 
 // 1. Ariketa: Hiru zenbaki oso sortu eta hasieratu.
 // Horrietako bat negatiboa bada, biderketa egin. Bestela, batura lor ezazu.

@@ -17,6 +17,17 @@ Proiektu honen helburua 80552C (8051 familia) mikro-kontrolagailua programatzea 
 - **IDE:** Keil μVision.
 - **Language:** C (C51 compiler).
 
+## Goiburuko Fitxategia (`#include`)
+
+Proiektu honetan **`reg552.h`** erabiltzen da beti, `reg52.h` generikoa erabili beharrean.
+
+| Fitxategia | Txipa | P4 ataka | ADC / PWM / I2C |
+|---|---|:---:|:---:|
+| `reg52.h` | 8052 orokorra | ❌ | ❌ |
+| `reg552.h` | **80C552 espezifikoa** | ✅ | ✅ |
+
+`reg552.h`-k 80C552 txiparen **SFR (Special Function Register) guztiak** definitzen ditu. Beraz, `P4` edo `ADC` erabiltzeko `sfr P4 = 0xE8;` lerro erredundanterik jarri beharrik **ez dago**.
+
 Keil proiektuetan (`.uvproj`) konpilatzean sortzen diren fitxategi tenporalak ez dira GitHub-era igoko, `.gitignore` fitxategiak horiek baztertuko dituelako (adibidez, `Objects/`, `Listings/`, `.obj`, `.lst` etab.).
 
 ## Nola Erabili

@@ -20,13 +20,11 @@
  *   P4.1 = Pultsadorea (Oinezkoen eskaera)
  *===========================================================*/
 
-#include <reg52.h>
+#include <reg552.h> /* 80C552 espezifikoa: P4, ADC, PWM, I2C... SFR guztiak barnebiltzen ditu */
 
-/* --- SFR Definizio Bereziak (80C552-rako) ---
- * reg52.h fitxategiak P0, P1, P2, P3 definitzen ditu,
- * baina P4 ez da 8052 estandarrean. 80C552k badu P4, haren
- * helbidean definituko dugu eskuz. */
-sfr P4 = 0xE8; /* P4 atakarentzako SFR helbidea 80C552-n */
+/* OHARRA: reg552.h-k P4 dagoeneko definituta du.
+ * reg52.h erabiltzen genuenean beharrezkoa zen 'sfr P4 = 0xE8;' lerro hau,
+ * baina orain EZABATU egin da, bestela konpiladoreak errore bikoizdura emango luke. */
 
 /* --- Bit Maskarak Argientzako --- */
 #define GORRIA    0xE0  /* 1110 0000 - P1.7, P1.6, P1.5 piztuta */
