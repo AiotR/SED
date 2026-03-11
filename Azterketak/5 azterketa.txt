@@ -1,0 +1,103 @@
+Deiturak/ Apellidos:  ................................ ................................ ................................ ........ Izena/ Nombre:  ................................ ................   
+Gradua /Grado : I.E.A.I.  eta Bikoitza        Ikasgaia/ Asignatura:  Sistema Elektroniko Digitalak 
+Ikasturtea/ Curso:  3  Taldea/ Grupo:  31  N.A.N./ D.N.I.: ................................ ..   Data/ Fecha:  2024-06-10 
+— Praktikoa  (Ikasgaiaren % 70) — 
+Lockheed Martin  enpresa merkataritza -hegazkin ultra -azkar  bat garatzen ari da. Hegazkinaren prototipoa 
+pertsona batek gidatuko du , eta ia Mach 2 abiadura hartuko du  (soinua ren abiaduraren bikoitza) . Hegaldi -
+probetan ustekaberen bat gertatuko balitz, pilotuak kabinatik salbu ihes egin ahal izatea  nahi da . 
+Horretarako,  garlinga ren irekitzea (kabinaren “tapa”) eta eserlekuaren  eiekzioa  edo jaurtiketa  
+kontrolatuko dituen sistema bat  garatuko da, zeinari GIE2 izena eman zaion . C lengoaia erabiliz, GIE2 
+sistema ren simulagailu bat inplementatzea  proposatzen da 80 C552 mikrokontrola gailua  erabiliz. 
+Ondoren go lerroetan , sistema  osatzen duten elementuak zerrendatze az gain , aurkeztu beharreko 
+funtzionamendu zehatza  deskribatzen da . 
+Oinarrizko funtzionamendua  (5 punt u): 
+Pilotuaren b elaunen parean dagoen eraztunetik  (“anilla tik”) tiratzean ( P4.0 pina), GIE2 sistema martxan 
+jartzen  da. Gertaera horren ondoren, eta aldi berean, pilotua eserlekura finkatzeko uhal ak estutuko dituen  
+inertzia -karrete (P1.7 pina) bat  eta garlinga  irekitzeko/askatzeko  gailua ( P1.0 pina) aktibatuko dira . 
+Garlingaren kontra talka ez egiteko, 5 segund o itxaron behar da eiekzio -motorra ( P1.6 pina) aktibatzeko . 
+Eiekzioa egin eta 3 s egundora, eserlekuaren paraxuta  (P1.1 pina) aktibatu beharko litzateke , pilotua 
+eserlekua rekin batera  hegazkinetik urrunduz . Eserlekuak arnasa hartzeko maskara batez dago hornituta. 
+Beraz,  ondoren, eserlekuak daraman arnasa hartzeko altuera egokia detektatzen duen sentsorea ( P4.1 
+pina) aktibatzen denean, hurrengo hiru ekintzak egikarituko dira: pilotuaren paraxuta aktibatu ko da  (P1.5 
+pina), oxigeno -maskara askatu ko da  (P1.2 pina) eta uhalak lasaitu ko dira pilotua eserlekutik banatu eta 
+aldentzeko . 
+Edozein unetan simulazio -prozesu a gelditu beharko balitz berrabiatze  baterako, P4.7 pinera 
+konektatutako  pultsadore  bat erabili  behar da . Era berean, deskribatu den simulazio -prozesua amaitzean, 
+pultsadorea sakatuz dena prest utziko da esandako prozesua berriz abiatzeko.  1 Taulak, 
+inplementazioan nahitaez erabili  beharreko nomenklatura ren eta pinen  laburpena jasotzen du:  
+1 Taula . Erabilitako pinak eta nomenklatura . 
+Pina Nomen klatura  Logika Pina Nomen klatura  Logika 
+P4.0 eraztuna 1: akt. P1.5 pilotuParaxuta  1: akt. 
+P1.7 uhalakEstutu  1: akt. P1.2 maskaraAskatu  1: akt. 
+P1.0 garlingaAskatu 1: akt. P1.3 alarma  1: akt. 
+P1.6 eiekzioaAktibatu  1: akt. P4.7 berrabiarazi * 1: akt. 
+P1.1 eserlekuParaxut a 1: akt. akt. = aktibatuta  
+P4.1 arnasSentsorea  1: akt. *Pultsadore bezala erabili
+Funtzionamendu aurreratua  (4 puntu ): 
+Pilotuak konortea  galtzen badu edo beste edozein arrazoirengatik GIE2 sistema aktibatzeko gai ez bada, 
+automatikoki aktibatuko da. Horretarako, P5.2 pinera konektatutako sistema bat garatu da. Sistema 
+horrek, zenbait aldagairen arabera, seinale analogiko bat sortzen du (0 ÷ 5 V) aireontziaren erorketa 
+askearen arrisku -maila kuantifikatuz. Maila 0tik 100era neurtzen da, arrisku txikienetik handienera, eta 
+hurrengo adierazpen a aplikatuz lortzen da:  GIPUZKOAKO INGENIARITZA ESKOLA  
+ESCUELA DE INGENIERÍA DE GIPUZKOA  
+DONOSTIA /SAN SEBASTIÁN  
+
+ 
+ 
+ 
+ 
+ 
+  
+𝑎𝑟𝑟𝑖𝑠𝑘𝑢  𝑚𝑎𝑖𝑙𝑎 =100 .0∙ 𝐴𝐷𝑏𝑖 ℎ𝑢𝑟𝑘𝑒𝑡𝑎𝐾𝑜𝑑𝑒𝑎 /1023 .0 
+ 
+Arrisku -mailak 80ko balioa gaindituz gero , GIE2  sistema  berehala martxan jarriko da . Maila 50 eta 80 
+artean badago (biak barne), alarma bat ( P1.3 pina) aktibatu ko da kabina n 10 segund oz. Alarma aktibatuta 
+dagoen bitartean:  
+ 
+• Arrisku -maila 50 baino txikiagoa bada, alarma gelditu eta GIE2  sistema ez da martxan jarriko . 
+• 10 segundo horien ondoren, maila 50 baino txikiago a ez balitz, alarma gelditu eta GIE2 sistema 
+martxa jarriko  da. 
+ 
+Edozein unean p ilotuak eraztun etik tira egiten badu, GIE2 sistema martxan jarriko da  (alarma 
+desaktibatuz aktibatuta badago) . 
+ 
+(1 punt u) “Model -Based Design”  medotologiaren inplementazioan : 
+a) ¿Zein da helburua ? 
+b) ¿Zeintzuk dira jarraitu beharreko pausoak (bere izenak aipatu) eta ze in ordenean ? Bakoitzaren 
+funtzioa deskribatu . 
+ 
+EBAZPENAK BETE BEHARREKO BALDINTZAK  
+ 
+• Azterketa gainditzeko oinarrizko funtzionamendua  behar bezala programatuta egotea  eskatzen da . 
+ 
+• Araztatze -prozesuan, μVision programa n lehenetsitako optimizazio maila (8) mantendu (aldatzeko 
+beharra ikusten ez baduzue , behintzat ). 
+ 
+• Mikrokontrolagailuaren kanpo -osziladorea 12.0 MHz -ekoa  dela kontsidera tu. 
+ 
+• Denbora zenbatzeko, 0 Timer -a erabili ko da  1 moduan , baita aipatutako Timer horren etendurari 
+jaramon egiten dion funtzioa ere  3. erregistro bankua  erabiliz. Nahi duzun denbora -oinarria erabili . 
+ 
+• Hasieraketak egiteko behar den kodea funtzio batean gauzatuko da . 
+ 
+• Aldagaiak global gisa deklaratuko dira soilik saihestezina denean global bezala deklaratzea . 
+ 
+• Aldagaiak datuen memorian ahalik eta espazio gutxien okupa dezaten deklaratuko dira . 
+ 
+• A/D bihurgailua erabiltzeko behar den kodea funtzio batean garatu beharko da. Funtzio horren 
+sarrera kanalaren indizea izango da, eta bihurketaren kode digitala itzuli beharko du . 
+ 
+• Azterketaren orrian μVisio n programaren konfigurazioan aldatu dituzun aukerak idatzi/islatu behar 
+dituzu (oszilagailuaren maiztasuna, etb.) . 
+ 
+• eGela -ra proiektu bakarra igoko da,  “.c” fitxategi bakarrarekin. . 
+ 
+ 
+ 
+Fitxategiak gordetzeko eta igotzeko jarraitu beharreko pausoak : 
+ 
+1. Abizena1Abizena2Izena  izeneko karpeta bat sortu.  
+2. Sortzen dituzun fitxategiak karpeta horretan gorde (proiektu bakarra).  
+3. Karpeta konprimatu eta eGelara (egela.ehu.eus) igo : Bidalketa  (karpeta konprimatua ) eta aldaketak 
+gorde . Bidalketaren egoera “ Kalifikatzeko bidalia ” egoerara pasako da.  
+4. Sortutako fitxategi eta karpeta guztiak ezabatu . 

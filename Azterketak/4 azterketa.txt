@@ -1,0 +1,140 @@
+ 
+ 
+ 
+ 
+ 
+ Deiturak /Apellidos:  ................................ ................................ ..........................  Izena /Nombre:  ................................ .........   
+Berezitasuna/ Especialidad:  I.E.I.A.  Gradua  Ikasgaia/ Asignatura:  Sistema  Elektroniko Digitalak  
+Ikasturtea/ Curso:  3º Taldea/ Grupo:  31  N.A.N./ D.N.I.:  ...........................   Data/ Fecha:  2019-V-31 
+ 
+— Praktikoa  (irakasgaiaren % 70) — 
+ 
+Irudian aurkezten den depositu nagusiaren ur-maila eta tenperatura kontrolatu nahi da , hustutze 
+balbularen ostean dagoen ur eskariari egoki aurre egiteko. Horretarako, 80C552 mikrokontrolagailuan 
+oinarrit utako sistema bat garatuko da . 
+ 
+ 
+ 
+Ondorengo taulak , sistemaren sarrera irteera digital desberdinak laburki deskribatzen ditu eta 
+mikrokontrolagailuaren zein pin -etara dauden konektatuta adierazten du.  
+ 
+Pina  Funtzioa  Pina  Funtzioa  
+P1.0 Martxa etengailua: Aktibatzean “1” logikoa 
+bidaltzen du pinera. Desaktibatzean berriz, “0” 
+logikoa.  P1.1 S1 sentsore digitala: “1” logikoa bidaltzen du 
+ur-maila sentsorea dagoen posiziotik gora 
+badago eta “0” logikoa sentsorearen 
+posiziotik behera badago.  P4.0 LED_M : Sistema martxan dagoen edo ez 
+adierazten du. Pin -a “0” -ra badago, led -a itzali egiten 
+da eta pin-a “1” -era badago piztu.  P1.7 Tº kontrola: tenperatura kontrola martxan 
+jartzeko etengailua: Aktibatzean “1” logikoa 
+bidaltzen du pinera. Desaktibatzean berriz, 
+“0” logikoa.  
+P4.1 Hustutze balbula : Pin-a “0” -ra badago, balbula itxi 
+egiten du, “1”-era badago ireki.  P4.7 LED_Tº: Tenperatura kontrola exekutatzen 
+ari den edo ez adierazten du. Pin -a “0” -ra 
+badago, led -a itzali egiten da eta pin -a “1” -era 
+badago aldiz, piztu.  
+P4.2 Ur-ponpa : Pin -a “0” -ra badago, ponpa geratu 
+egiten da eta pin -a “1”-era badago, ponpa martxan 
+jartzen da.  P4.6 Tº-aren kontrol seinalea : Pin-a “0” -ra 
+badago, ez du ura berotzen, “1” -era badago 
+ura berotzen du.  
+P3.2 Mantentze -lanak hautatzaile edo 
+selektorea : Bi posizio ditu. 0FF posizioan 
+“1” logikoa bidaltzen du. ON posizioan 
+aldiz, “0” logikoa.  P1.2 S2 sentsore digitala: “1” logikoa bidaltzen du ur -
+maila sentsorea dagoen posiziotik gora badago eta 
+“0” logikoa sentsorearen posiziotik behera badago.  
+ 
+GIPUZKOAKO INGENIARI TZA ESKOLA  
+ESCUELA DE INGENIERÍ A DE GIPUZKOA  
+DONOSTIA /SAN SEBASTIÁN  
+
+ 
+ 
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ Gutxieneko ur -mailaren kudeaketa  (5 puntu ): 
+ 
+Depositu nagusian gutxieneko ur -maila bat bermatzea da  garatu beharreko sistemaren  lehen  helburu a. 
+Horretarako , segidan deskribatzen den moduan funtzio natu behar ko du sistemak . 
+ Martxa etengailua (P1.0)  aktibatu bezain pronto, LED_M  led-a (P4.0)  piztuko da eta berehala  
+betetze prozes uari hasiera emango zaio. Horretarako:  
+o Hustutze balbula (P4.1) itxi behar da lehendabizi , ondoren, ur-ponpa (P4.2)  martxan 
+jarriz. Ur -ponpa depositua betetzen arituko da 10 segundo  pasa arte edota S2 sentsorea  
+(P1.2) aktibatu arte.  
+o Depositua bete ostean, hustutze balbula  (P4.1) ireki behar da, ur eskariari aurre egiteko.  
+o S1 sentsorea (P1.1) “0”-ra jartzen den une oro betetze prozesua errepikatu beharko da 
+automatikoki.  
+ Martxa (P1.0)  etengailuaren bitartez, sistema edozein unean geratzea posible izango da , prest 
+geratu z hasieratik hasteko.  
+ Sistema ez badago martxan, led -ak itzali ta egongo dira, ur-ponpa geldirik eta hustutze balbula 
+itxita.  
+ 
+Uraren tenperatura kontrola (3  puntu ): 
+ 
+Gutxieneko ur maila kudeatzeaz gain, honen tenperatura ere kontrolatu nahi da. Horretarako beharrezk oa 
+da Tº kontrola  etengailuak (P1.7) “1” logikoa bidaltzea mikrokontrolagailuari. Deposituaren betetze 
+prozesuaren erdian kontrol tenperatura aktibatuko ba litz (aipatu berri dugun etengailuaren bitartez), 
+kontrola ez da martxan jarriko betetze prozesua bukatu arte. Halaber, tenperatura kontrola martxa n 
+dagoela , betetze prozesu bat hasiko balitz, tenperatura kontrola eten egingo da , prest utziz betetze 
+prozesua  amaitu bezain pronto  hasieratik has teko. Horiek horrela, LED_Tº  (P4.7) led-ak temperatura 
+kontrola exekutatzen ari den edo ez adierazi beharko du  une oro  (hau da, b etetze prozesu  baten  bitartean  
+adibidez , bai tenperatura  kontrol aren exekuzio a baita tenperaturaren kontrolari dagokion led -a ere 
+desaktibatu ta egon go dira).  
+ 
+Tenperatura kontrola ON/OFF motakoa izango da. Hau da, 10 segund uro uraren tenperatura neurtuko 
+da 5. atakako 5.  pinari konektaturik dagoen sentsore analogiko baten bitar tez.  Uraren tenperatura 30º 
+edo baxuagoa bada, Tº-aren kontrol seinalea  (P4.6)  deituriko irteera aktibatu beharko da , ura berotzen  
+duen  erresistentzia martxan jartzeko . Bestalde, uraren tenperatura 30º baina altuago a bada, aipatu berri 
+den irteera desaktibatu ta egon  beharko du .  
+ 
+Tenperatura , gradutan , neurtu ahal izateko, ondorengo kalkulua egin daiteke:  
+ 
+tenp = (130.0/1023) * kodeDigitala – 30.0, 
+ 
+zeina mikrokontrolagailuaren bihurgailu A/D -ak bueltatzen duen kode digitalaren menpekoa den.  
+ 
+Mantentze -lanak (2 puntu)  
+ 
+ Mantentze -lanak egin ahal izateko, Mantentze -lanak  (P3.2)  deituriko  hautatzaile edo selektore a 
+konektatu da mikrokontrolagailuaren 3. atakako 2. pinera.  Hautatzeailea ON posizioan jarriz gero, hau 
+da, “mantentze -lan” moduan sartuz gero,  sistemaren gainontzeko sarrer ak zein balio duten kontuan izan 
+gabe,  sistemaren irteerako pin guzti -guztiak desaktibatu egingo dira  hautatzailea OFF posiziora bueltatu 
+arte. Behin “ mantentze -lan” modutik irtenda, sistema prest geratu ko da  hasieratik berriro hasteko.  
+ 
+ 
+ 
+ 
+ 
+ EBAZPENAK HURRENGO BALDINTZAK BETE BEHAR DITU  
+ 
+1. Azterketa gainditzeko beharrezkoa da “ Gutxieneko ur -mailaren kudeaketa ” behar bezala gauzatzea.  
+ 
+2. Mikrokontrolagailuaren  kanpo -osziladorea 1 1,0592 MHz -ekoa dela kontsidera ezazu.   
+ 
+3. Denbora zenbatzeko, Timer0 -a erabili 1. moduan, baita aipatutako Timer  horren etendurari jaramon 
+egiten dion funtzioa ere.  
+ 
+4. Mantentze -lanetan sartzeko eskaera kanpo etendura baten bitartez gauzatuko da , zeina 0 maila 
+logikoaz eskatu a izateko konfiguratuko den . 
+ 
+5. Beharrezko hasierapenak egiteko behar den kodea funtzio batean gauzatuko da.  
+ 
+6. Aldagaiak global gisa deklaratuko dira soilik saihestezina denean global bezala deklaratzea . Halaber, 
+aldagaiak datuen memorian ahalik eta espazio gutxien okupa dezaten deklaratuko dira.  
+ 
+7. A/D bihurgailua erabiltzeko behar den kodea funtzio batean garatu beharko da. Funtzio horren 
+sarrera kanalaren indizea izango da, eta bihurketaren kode digitala itzuli beharko du.  
+ 
+8. Azterketaren orrian uvision programaren konfigurazioan aldatu dituzun aukerak idatzi/islatu behar 
+dituzu, (oszilagailuaren maiz tasuna, etb.).  
+ 

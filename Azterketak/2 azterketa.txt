@@ -1,0 +1,86 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Deiturak/Apellidos:  ................................ ................................ ...... Izena/Nombre:  ..............................   
+Gradua /Grado : Industria Elektronikaren eta Automatikaren Ingeniaritza    N.A.N./D.N.I.:  ................   
+Ikasgaia/Asignatura:  Sistema  Elektronik o Digital ak  Ikasturtea/Curso:  3 
+Taldea/Grupo: 31    Data/Fecha: 2016-VI-27 
+ 
+— Praktik oa (7 puntu ) — 
+ 
+Demagun  80C552 mikrokontrolagailua  (K) C lengoaian programatu nahi dela izen bereko diskoteka  
+donostiarra  beteranoa ren sarrera apaintzen duen “ BATAPLAN ” argizko errotulua kontrolatzeko.  
+ 
+Horretarako, suposa ezazu P1 ataka paraleloko pin -etako bakoitzak “ BATAPLAN ” hitzaren  hizkietako 
+bat piztu ala itzaltzeko agindua sortzen duela. Horrenbestez, P1.7 pin-a “B”-ri dagokio; P1.6 pin-a, ostera,     
+“A”-ri; P1.5 pin-a “T”-ri, etab.; azkenik, P1.0 pin-a “N”-ri dagokio.  
+ 
+P4.0 pin-era konektaturiko etengailu orokor baten bitartez , sistema  edozein unetan martxan jarri —‘1’ 
+logikoa — ala deskonektatu —‘0’ logikoa — ahal izango da.  
+ 
+Argizko e rrotuluan erakutsi beharreko konfigurazioen segida I Taulan aurkezt utakoa da. Konfigurazio 
+bakoitze an pizten diren  hizkiak islatz en dira soilik.  
+ 
+I Taula . Argizko errotuluan erakutsi beharreko konfigurazioen segida.  
+ 
+B - - - - - - - 
+- A - - - - - - 
+- - T - - - - - 
+- - - A - - - - 
+- - - - P - - - 
+- - - - - L - - 
+- - - - - - A - 
+- - - - - - - N 
+B - T - P - A - 
+- A - A - L - N 
+B - - - - - - - 
+B A - - - - - - 
+B A T - - - - - 
+B A T A - - - - 
+B A T A P - - - 
+B A T A P L - - 
+B A T A P L A - 
+B A T A P L A N 
+Lehenengo konfiguraziora itzuli  
+ 
+P4.1 pin-era konektaturiko etengailu batek I Taulako segidaren nora nzko a edozein unetan aldatzea 
+ahalbidetuko du. Horre la, P4.1 =  ‘1’ bada, noranzko a goitik beherakoa izango da, eta, aldiz, P4.1 = ‘0’  bada, 
+noranzko ak behetik gorakoa izan beharko du.  
+ 
+Azkenik, P4.2 pin-ean kokatu tako beste etengailu batek segidaren abiadura  edozein unetan aldatzea 
+ahalbidetuko du. Horrenbestez, P4.2 = ‘1’ bada, konfigurazio bakoitzak segundo 1 ez iraun beharko du akti bo. 
+Aitzitik , P4.2 = ‘0’  bada, konfigurazio bakoitzak 0,5 segundo z iraungo du aktibo . GIPUZKOAKO INGENIARI TZA ESKOLA  
+ESCUELA DE INGENIERÍA DE GIP UZKOA  
+DONOSTIA – SAN SEBAS TIÁN 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ EBAZPENAK BETE BEHARR EKO BALDINTZAK  
+ 
+1. Argizko errotuluan erakutsi beharreko 18 konfigurazioak programaren memorian metatu behar dira, bektore 
+bakar batean .  
+ 
+2. K-ren kanpo -osziladorea 12 MHz -ekoa dela kontsidera ezazu.  
+ 
+3. Denbora zenba tzeko, 0 Timer -a erabiliko da 1 moduan, baita aipatutako Timer  horren etendurari jaramon 
+egiten dion funtzio bat ere . 
+ 
+4. Beharrezko hasierapenak egiteko behar den kodea  funtzio batean gauzatuko  da. 
+ 
+5. Aldagai ak global gisa deklaratuko dira soilik saihestezina denean  global bezala  deklaratzea.  
+ 
+6. Aldagai ak datuen memorian ahalik eta espazio gutxien okupa dezaten deklara tuko dira.  
+ 
+ 
+OHARRA : Azterketa gainditze ko, ezinbestekoa da, behin argizko errotuluaren kontrolerako au tomatismoa 
+martxan jarri ostean  —P4.0 = ‘1’ —, perfektu ki funtzionatzea P4.1 = P4.2 = ‘1’ deneko kasua —I 
+Taularen goitik beherako n oranzko a, segundo 1eko erakuste -denboraz konfigurazio bakoitzeko —. 

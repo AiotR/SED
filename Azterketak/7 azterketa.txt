@@ -1,0 +1,81 @@
+ 
+ 
+ 
+ 
+ 
+ Deiturak /Apellidos:  ................................ ................................ ..........................  Izena /Nombre:  ................................ .........   
+Berezitasuna/ Especialidad:  I.E.A.I. Gradua  Ikasgaia/ Asignatura:  Sistema  Elektroniko Digital ak 
+Ikasturtea/ Curso:  3º Taldea/ Grupo:  31  N.A.N./ D.N.I.:  ...........................   Data/ Fecha:  2019- VII- 01 
+ 
+— Praktikoa  (irakasgaiaren % 70a) — 
+ 
+Autoen ibilbidea gobernatuko duen semaforo baten algoritmoa pro gramatzea eskatzen da, baita 
+semaforoaren ondoan dagoen argizko panela ere, zeinak errepidean  izotza dagoen edo ez ohartarazten  
+duen. Programa C lengoa ian egingo da  80C552 mikrokontrolagailuan inplementatua izateko. Sistemaren 
+sarrera eta irteerak ondorengo ta ulan islatzen dira.  
+ 
+Pin-a   Funtzioa  
+P1.0 Kolore berdea aktibatu (1) eta desaktibatzen (0) duen seinalea  
+P1.1 Kolore laranja aktibatu (1) eta desaktibatzen (0) duen seinalea  
+P1.2 Kolore gorria aktibatu (1) eta desaktibatzen (0) duen seinalea  
+P1.7 Kontuz, izotza! Idatzirik duen a rgizko panela aktibatu (1) eta desaktibatzen (0) duen seinalea  
+P4.0 Oinezkoen pultsagailua. Zapaltzean “1” logikoa bidaltzen du eta zapaldurik ez badago “0” logikoa  
+P5.3 Tenperatura neurtzeko sentsorearen seinalea  
+ 
+ 
+1. (5 punt u) Sistemak  ondoren deskribatzen den eran funtzionatu behar du : 
+ 
+Semaforoak ondorengo zikloa errepikatu behar du behin eta berriz: 10 segundoz  berde egongo 
+da, 2 segundoz  laranja eta 7 segundoz  gorria .  
+ 
+OHARRA:  Azterketa gainditzeko  beharrezkoa da aipatu berri den semaforoaren 
+oinarrizko funtzionamendu hau behar bezala gauzatzea.  
+ 
+2. (2.5 puntu ) Oinezkoen pultsagailua zapaltzen den unean, segidan deskribatzen dena gertatu 
+beharko du:  
+ Semaforoa berdea badago, laranja kolorera pasa beharko du berehala , azterketaren aurreko  
+puntuan aipatu den zikloa normalki jarraituz.  
+ Semaforoa gorria badago , beste 7 segundoz egon beharko du gorri . 
+ 
+3. (2.5 puntu ) Tenperatura  0º-tik beherakoa bada, izotzaren presentzia dagoela abisatzen duen argizko 
+panela piztu egingo da . Beste kasu guztietan, panela itzalita egon beharko du. Tenp eraturaren 
+irakurketa 10 segundoz behin egi ngo da  P5.3 pinaren bitartez . Bihurketa A/D -aren ostea n, 
+tenperaturaren balioa, gradutan, errez kalkulatu daiteke ondorengo erlazioa  erabiliz :  
+ 
+ܽݎݑݐܽݎ݁݌݊݁ݐ= 70,0
+1023 ݈ܽݐ݅݃݅ܦ݁݀݋݇ −20,0 
+ 
+ 
+non, kodeDigitala  80C552 µkontrolagailuaren bihurgailu A/D -ak bueltatzen duen kode digitala den.  
+ 
+ 
+ GIPUZKOAKO INGENIARI TZA ESKOLA  
+ESCUELA DE INGENIERÍ A DE GIPUZKOA  
+DONOSTIA /SAN SEBASTIÁN  
+
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+EBAZPENAK HURRENGO BALDINTZAK BETE BEHAR DITU  
+ 
+1. Mikrokontrolagailuaren  kanpo -osziladorea 11,0592 MHz -ekoa dela kontsidera ezazu.   
+ 
+2. Denbora zenbatzeko, Timer 1-a erabili 2. moduan, baita aipatutako Timer horren etendurari jaramon 
+egiten dion funtzioa ere.  
+ 
+3. Beharrezko hasierapenak egiteko behar den kodea funtzio batean gauzatuko da.  
+ 
+4. Aldagaiak global gisa deklaratuko dira soilik saihestezina denean global bezala deklaratzea. Halaber , 
+aldagaiak datuen memorian ahalik eta espazio gutxien okupa dezaten deklarat uko dira.  
+ 
+5. A/D bihurgailua erabiltzeko behar den kodea funtzio batean garatu beharko da. Funtzio horren 
+sarrera kanalaren indizea izango da, eta bihurketaren kode digitala itzuli beharko du.  
+ 
+6. Azterketaren orrian uvision programaren konfigurazioan aldatu di tuzun aukerak idatzi/islatu behar 
+dituzu, (oszilagailuaren maiztasuna, etb.).  
+ 

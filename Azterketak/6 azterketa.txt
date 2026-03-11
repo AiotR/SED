@@ -1,0 +1,90 @@
+ 
+ 
+ 
+ 
+Izena eta Deiturak/ Nombre y Apellidos:  ................................ ...............   ................................ ...........................  
+Gradua /Grado : Elektronikaren eta Automatikaren Ingeniaritza             N.A.N./D.N.I.:  ................................ ....... 
+Ikasgaia/Asignatura:  Sistema  Elektroniko Digital ak  Ikasturtea/Curso:  3…… 
+Taldea/Grupo: 31     Data/Fecha:……….……  
+ 
+— Zati p raktikoa  (7 puntu) — 
+ 
+ Mahaian soilik azterketaren orria eta boligrafo bat eduki ditzakezu. Ezin da azterketa  arkatzaz egin, 
+boligrafoz egin behar da.  
+ Ezin da interneta erabili , ezta gailu mugikorrak ere . Telefono mugikorra ezin da erloju gisa erabili.  
+ 
+ 
+Indukzio -plaka baten  tenperatura kontrolatzeko algoritmoa a utomatismo 
+baten bidez  80C552 μKontrolagailu batean garatu  nahi da C lengoaia 
+erabiliz. Kontrol algoritmoa on-off (dena -ezerez) motatakoa da. Kontrol 
+seinalea 10 segunduro eguneratu behar da, hurrengo bi pausoak jarra ituz: 
+ 
+1) Tenperaturaren  errorea lortu ݁௧=ܽ݅ݖݐ݊݁ݎ݂݁݁ݎݎܧܽݎݑݐܽݎ݁݌݊݁ݐ −
+ܽݎݑݐܽݎ݁݌݊݁ݐ . Horretarako, suposatu tenperaturaren erreferentziaren 
+seinalea P5.0 konektatzen dela, eta tenperaturaren balioa neurtzeko 
+sentsorearen seinalea P5.1 konektatzen dela. Bi seinale horien A/D 
+bihurketa egin eta gero, tenperaturaren erreferentzia ren balioa  eta 
+tenperaturaren balio a ezagutzeko, hurrengo ekuazioak erabili behar 
+dira:  
+ 
+݅ݖݐ݊݁ݎ݂݁݁ݎݎܧܽݎݑݐܽݎ݁݌݊݁ݐܽ =97,5
+1023݈ܽܽݐ݅݃݅ܦ݁݀݋݇ _ܽ݅ݖݐ݊݁ݎ݂݁݁ݎݎܧܽݎݑݐܽݎ݁݌݊݁ݐ+ 2,5 
+ 
+ܽݎݑݐܽݎ݁݌݊݁ݐ= 97,5
+1023݈ܽܽݐ݅݃݅ܦ݁݀݋݇ _ܽݎݑݐܽݎ݁݌݊݁ݐ+ 2,5 
+ 
+2) Tenperaturaren errorea positiboa bada, hurrengo pinak aktibatuko dira  -
+1 logikoa - (hauek kontrol seinalea dira) sistema kontrolatzeko: P3.2, 
+P3.3, P3.4  eta P3.5. Bestela, hau da, tenperaturaren errorea nulua edo 
+negatiboa bada, pin horiek desaktibatuko dira  -0 logikoa -. Bi kasutan 
+ezin dira aldatu P3 atakaren gainerako pinak . 
+ 
+Automatismoa edozein unetan martxan jartzeko edo gelditzeko P4.0 pinari 
+konektatutako etengailu bat erabiliko da. Pin horretatik 1 logikoa sartzean, 
+automatismoa martxan jarriko da; 0 logikoa sartzean, aldiz, sistema ahalik eta 
+lasterren  geldituko da.  
+ 
+OHARRA : Azterketa gainditzeko, ezinbestekoa da , automatismoa martxan jarri 
+eta gero : 
+1. Hasierapenen eta A/D bihurgailuaren funtzioek zuzenki funtzionatzea.  
+2. Kontrol seinalea eguneratzen duen kode zatian s artzea zehazki 10 
+segunduro, timerrak sortzen duen etendurari jaramon egiteko 
+funtzio an. 
+ 
+ UNIBERTSITATE -ESKOLA  POLITEKNIKOA  
+ESCUELA UNIVERSITARI A POLITÉCNICA  
+DONOSTIA – SAN SEBAS TIÁN 
+
+ 
+ 
+ 
+ 
+ 
+ 
+EBAZPENAK HURRENGO BA LDINTZAK BETE BEHAR DITU: 
+ 
+1. μKontrolagailuaren  kanpoko osziladorearen maiztasuna laborategian 
+erabili dugun DISEN 552 ekipoarena dela suposatu . 
+ 
+2. Denbora kudeatzeko Timer 0 1. moduan erabiliko da , eta timer horrek 
+sortzen duen etendurari jaramon egiteko funtzio bat erabiliko da . Kontrol 
+seinalearen eguneratzea funtzio horren barruan egin behar da.  
+ 
+3. Hasierapenak egiteko behar den kodea funtzio batean garatu behar ko da. 
+ 
+4. A/D bihurgailua erabiltzeko behar den kodea funtzio batean garatu 
+beharko da. Funtzio h orren sarrera kanalaren indizea izango da , eta 
+bihurketaren kode digitala itzuli beharko du.  
+ 
+5. Aldagai  globalak erabiliko dira baldin eta ezinbestekoa bada  aldagai 
+global ak erabiltzea . Bestela ezin dira erabili.  
+ 
+6. Aldagaien datu -motak aukeratuko dira datuen memorian ahalik eta 
+espaziorik gutxien okupatzeko . 
+ 
+7. Programa laburki azaldu behar duzu. Horretarako , C programaren 
+fitxategian oharrak idatzi behar dituzu . 
+ 
+8. Azterketaren orrian uvision programaren konfigurazioan aldatu dituzun 
+aukerak idatzi behar dituzu, eta azaldu behar duzu nola kalkul atu dituzun 
+timerraren kontaketa - eta TMOD -erregistroetan  kargatzen d ituzun balioa k. 

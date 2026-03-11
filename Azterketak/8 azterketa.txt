@@ -1,0 +1,101 @@
+ 
+ 
+ 
+ 
+ 
+ Deiturak/ Apellidos:  ................................ ................................ ..........................  Izena/ Nombre:  ................................ .........   
+Berezitasuna/ Especialidad:  I.E.A.I. Gradua     Ikasgaia/ Asignatura:  Sistema  Elektroniko  Digital ak 
+Ikasturtea/ Curso:  3  Taldea/ Grupo:  31  N.A.N./ D.N.I.:  ...........................   Data/ Fecha:  12-VI-2020 
+ 
+— Praktikoa  (irakasgaiaren % 70) — 
+ 
+Zure herriko festetan egingo diren su -artifizial ak automatizatzea eskatu zaizu, suek irauten duten 
+bitartean, bertakoen segurtasuna bermatzeko helburuarekin. Horretarako, 80C552 mikrokontrolagailuan 
+oinarritutako lehen prototipoa diseinatzen hasi zara.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1. irudia: P almondo edo “ palmera ” ezaguna  
+ 
+OINARRIZKO FUNTZIONAMENDUA  (1 ORDU ETA 45 MINUTU ), PALMONDOAREN SORKUNTZA 
+PROZESUA  (5 PUNTU ): 
+ 
+Prototipoak hiru eragingailu  ditu ( goranzko saihets * bidez  aktibatzen direnak ), 3 kohete zerura jaurti 
+ahal izateko . Eragingailu h auek P4.0, P4.1 eta P4.2 pinetara konektatuta da ude, hain ezaguna den 
+“palmondo  edo palmera ”-a zeruan irudikatzeko  asmoz  (ikusi 1. irudia).  
+ 
+Horretarako, le henik eta behin, P4.0 pinaren bidez enborra  sortuko duen koheteari eragin behar zaio. 5 
+segundo igaro ondoren,  P4.1 pinaren bidez hostoak  sortuko d ituen koheteari eragingo zaio. Eta 
+berrikuntza gisa, azkenekotik 3 segundora hirugarren suziriari eraginez, P4.2 pinaren bidez, eguzki  
+distiratsua sortuko da.  Eguzkia aktibatu eta 4 segundora, 0 maila logikoan jarriko dira berriro P4.0, P4.1 
+eta P4.2 pinak, hurrengo prozesuan goranzko saihets berri bat sortzeko.  
+ 
+Palmondoaren irudia sortzen hasteko, sistemak seinale bat (logika positiboa, hau da, “1” logikoa ) 
+jaso behar du P1.0 pin-ari konektatutako pultsadore  baten bidez, eta ezingo da palmondoa berriz 
+abiarazi prozesu osoa amaitu arte.  
+ 
+Edozein unetan, P1.7 pin-ari konektatutako larrialdiko -etengailua aktibatzen bada (logika 
+positiboa ), sistemak, segidan azaltzen dena  egin beharko du:  
+ lehenik eta behin, kohet een metxak moztuko ditu , P4.7 pin-ari ( logika positiboa ) 
+konektatutako gillotina  baten bidez,  
+ eta, bestalde , eragingailuetara konektatutako pinak desaktiba tuko ditu . Gainera, larrialdi -
+etengailua desaktibatu arte, sistemak ez du utziko palmondoa sortzeko prozesua berriro hasten.  
+Larrialdi -etengailua desaktibatzen denean  beraz , gillotina ere desaktibatu beharko da . 
+ 
+* Eragingailuak goranzko saihets bat detektatzen du en unean jaurtitzen du  kohetea SOILIK . Berriro 
+ere kohetea jaurti ahal izateko beste goranzko saihets bat iritsi beharko zaio.  GIPUZKOAKO INGENIARITZA ESKOLA  
+ESCUELA DE INGENIERÍA DE GIPUZKOA  
+DONOSTIA /SAN SEBASTIÁN  
+
+ 
+ 
+ 
+ 
+ 
+ FUNTZIONAMENDU AURRERATUA (1 ORDU ETA 15 MINUTU ) : 
+ 
+ Oinarrizko funtzionamenduaren atalean  ez bada horrela egin,  oraingoan,  denboraren kontaketa 
+prozesuan , kontagailu bakarra erabili behar da  eta berau  palmondoa sortzeko prozesuaren 
+amaieran edo hasieran soilik  reseteatu/hasieratu  beharko  da zerora . Sartu itzazu 
+programan beharrezko ak diren  aldaketak, aipatutako baldintzak betez, sistemak egoki 
+funtzionatzen jarrai dezan (1 puntu ). 
+ 
+ Sistemaren funtzionamendua malgutzeko, egindako kodea aldatzea proposatzen da . Oraingoan, 
+hasieraketa funtzioari parametro bat pasa beharko zaio, zehazki, timer -ak ze modutan 
+funtzionatu behar duen zehaztuko du parametro honek eta programak  aukeratutako timer -
+aren funtzionamendu modura egokitzeko  gai izan beharko du . Demagun 
+funtzi onamendu -modu  posibleak 1 eta 2  moduak direla soilik . Eskatutakoa egin ahal izateko, 
+“modua” izeneko aldagai global bat deklaratuko da, eta balio bat esleituko zaio programa 
+nagusiaren hasieran,  timer -ak funtzionatuko duen modua zein den zehaztuko duelarik .              
+(4 puntu ). 
+ 
+ 
+EBAZPENAK HURRENGO BALDINTZAK BETE BEHAR DITU  
+ 
+1. Mikrokontrolagailuaren  kanpo -osziladorea 1 1,0592  MHz -ekoa dela kontsidera ezazu.   
+ 
+2. Oinarrizko funtzionamendurako , Timer 0-a erabili , funtzionamendu Modua 2. izanik , baita 
+aipatutako Timer horren etendurari jaramon egiten dion funtzioa ere. Funtzio honek 3 . erregistro 
+bankua erabiliko du.  
+ 
+3. Beharrezko hasieraket ak egiteko behar den kodea  (irteerak, timer -aren konfigurazioa, etenduren 
+konfigurazioa)  funtzio batean gauzatuko da.  
+ 
+4. Aldagaiak global gisa deklaratuko dira soilik saihestezina denean global bezala deklaratzea.  
+ 
+5. Aldagaiak datuen memorian ahalik eta espazio gutxien okupa dezaten deklaratuko dira.  
+ 
+ 
+6. C fitxategiaren hasieran idatzi/islatu itzazu, komentario moduan, uvision programaren 
+konfigurazioan aldatu dituzun aukerak (oszilagailuaren maiztasuna, etb.).  
+ 
+ 
